@@ -1,0 +1,40 @@
+/* Problem: Implement a function generateEvenNumbers(int n) that returns an array of the first n even numbers.  
+Use dynamic memory allocation (new keyword).  
+Call the function from main() and display the array elements */
+
+  #include <iostream>
+using namespace std;
+
+// Function to generate the first n even numbers
+void generateEvenNumbers(int n) {
+    // Dynamically allocate memory for an array of size n
+    int* evenNumbers = new int[n];
+    
+    // Fill the array with the first n even numbers
+    for (int i = 0; i < n; i++) {
+        evenNumbers[i] = 2 * (i + 1);  // The i-th even number is 2 * (i + 1)
+    }
+    
+    // Display the generated even numbers
+    cout << "The first " << n << " even numbers are: ";
+    for (int i = 0; i < n; i++) {
+        cout << evenNumbers[i] << " ";
+    }
+    cout << endl;
+    
+    // Free the dynamically allocated memory
+    delete[] evenNumbers;
+}
+
+int main() {
+    int n;
+    
+    // Ask the user for the number of even numbers to generate
+    cout << "Enter the number of even numbers to generate: ";
+    cin >> n;
+    
+    // Call the function to generate and display even numbers
+    generateEvenNumbers(n);
+
+    return 0;
+}
