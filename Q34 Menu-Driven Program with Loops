@@ -1,0 +1,57 @@
+/*Assignment 9: Menu-Driven Program with Loops  
+Create a menu-driven program that allows the user to perform the following operations repeatedFind the factorial of a number.  
+Find the GCD of two numbers.  
+Find the LCM of two numbers.  
+Exit the program.  
+Implement the menu using a loop and appropriate control structures. 
+*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int choice;
+    do {
+        cout << "\nMenu:\n1. Factorial\n2. GCD\n3. LCM\n4. Exit\nChoose an option: ";
+        cin >> choice;
+
+        if (choice == 1) {
+            int n, fact = 1;
+            cout << "Enter a number: ";
+            cin >> n;
+            for (int i = 1; i <= n; i++) {
+                fact *= i;
+            }
+            cout << "Factorial: " << fact << endl;
+        } else if (choice == 2) {
+            int a, b;
+            cout << "Enter two numbers: ";
+            cin >> a >> b;
+            while (b != 0) {
+                int temp = b;
+                b = a % b;
+                a = temp;
+            }
+            cout << "GCD: " << a << endl;
+        } else if (choice == 3) {
+            int a, b, gcd, lcm;
+            cout << "Enter two numbers: ";
+            cin >> a >> b;
+            int tempA = a, tempB = b;
+            while (tempB != 0) {
+                int temp = tempB;
+                tempB = tempA % tempB;
+                tempA = temp;
+            }
+            gcd = tempA;
+            lcm = (a * b) / gcd;
+            cout << "LCM: " << lcm << endl;
+        } else if (choice == 4) {
+            cout << "Exiting program." << endl;
+        } else {
+            cout << "Invalid choice. Try again." << endl;
+        }
+    } while (choice != 4);
+
+    return 0;
+}
