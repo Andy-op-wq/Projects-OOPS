@@ -1,0 +1,35 @@
+/* Assignment 12: Sum of Digits  
+Write a program that computes the sum of the digits of an integer.  
+Use a while loop to extract and sum the digits.  
+Extend it to find the product of digits as well */
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int number, sum = 0, product = 1, digit;
+
+    // Input the number
+    cout << "Enter an integer: ";
+    cin >> number;
+
+    // Ensure the number is positive for simplicity (optional for negative numbers)
+    int originalNumber = number;
+    if (number < 0) {
+        number = -number;  // Convert to positive if negative
+    }
+
+    // Loop to extract and sum the digits
+    while (number != 0) {
+        digit = number % 10;  // Extract the last digit
+        sum += digit;         // Add to sum
+        product *= digit;     // Multiply for product
+        number /= 10;         // Remove the last digit
+    }
+
+    // Output the sum and product
+    cout << "The sum of the digits of " << originalNumber << " is: " << sum << endl;
+    cout << "The product of the digits of " << originalNumber << " is: " << product << endl;
+
+    return 0;
+}
